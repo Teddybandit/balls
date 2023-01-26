@@ -6,7 +6,7 @@ public class MyJPanel extends JPanel{
     ArrayList<Ball> balls = new ArrayList<Ball>();
     int ballNum = 20;
     JLabel text = new JLabel(ballNum+" balls");
-    JTextField fpsSetter = new JTextField("set fps to()",15);
+    JTextField fpsSetter = new JTextField("set fps to()",10);
     private double fps = 20;
     public MyJPanel(){
         text.setBackground(Color.WHITE);
@@ -17,12 +17,15 @@ public class MyJPanel extends JPanel{
         }
         setBackground(Color.GRAY);
         fpsSetter.addActionListener(new ActionListener(){
-            String s = fpsSetter.getText();
           public void actionPerformed(ActionEvent e){
+              String s = fpsSetter.getText();
               try {
                   fps = Integer.valueOf(s.substring(s.indexOf('(') + 1,s.length()-1));
+                fpsSetter.setBackground(Color.WHITE);
+                fpsSetter.setText("set fps to()");
               }catch(Exception ex){
-                  fpsSetter.setBackground(Color.RED);
+                fpsSetter.setBackground(Color.RED);
+                fpsSetter.setText("set fps to()");
               }
           }
         });
