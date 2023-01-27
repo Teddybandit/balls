@@ -9,8 +9,9 @@ public class MyJPanel extends JPanel{
     JTextField fpsSetter = new JTextField("set fps to()",10);
     private double fps = 20;
     public MyJPanel(){
-        text.setBackground(Color.WHITE);
+        text.setBounds(200,0,100,15);
         add(text);
+        fpsSetter.setBounds(300,0,100,15);
         add(fpsSetter);
         for(int i=0;i<20;i++){
             balls.add(i,new Ball());

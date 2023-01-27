@@ -6,6 +6,7 @@ public class Ball{
     private Color color;
     private int ID;
     private int lastBounce = -1;
+    private int size; 
     public Ball(double x,double y,double xSpeed,double ySpeed){
         this.x = x;
         this.y = y;
@@ -14,6 +15,7 @@ public class Ball{
         ID=nextID;
         nextID++;
         color = randomColor();
+        size=(int)(Math.random()*11+10);
     }
     public Ball(){
         x=(Math.random()*480+10);
@@ -23,6 +25,7 @@ public class Ball{
         ID=nextID;
         nextID++;
         color = randomColor();
+        size=(int)(Math.random()*11+10);
     }
     public int getX(){
         return (int) x;
@@ -38,10 +41,11 @@ public class Ball{
     static void collide(Ball b1,Ball b2){//has 2 balls bounce off eachother if they are touching
         double xdis = b1.x-b2.x;
         double ydis = b1.y-b2.y;
-        if(Math.abs(xdis)<20
-                &&Math.abs(ydis)<20
+        int sizeTotal = b1.size+b2.size;
+        if(Math.abs(xdis)<sizeTotal
+                &&Math.abs(ydis)<sizeTotal
                 &&((b2.lastBounce!=b1.ID)||(b1.lastBounce!=b2.ID))
-                &&Math.pow(xdis,2)+Math.pow(ydis,2)<400
+                &&Math.pow(xdis,2)+Math.pow(ydis,2)<Math.pow(sizeTotal,2)
                 ){
             double xvel = b1.xSpeed-b2.xSpeed;
             double yvel = b1.ySpeed-b2.ySpeed;
@@ -90,6 +94,6 @@ public class Ball{
     }
     public void draw(Graphics g){
         g.setColor(color);
-        g.fillOval((int)x-10,(int)y-10,20,20);
+        g.fillOval((int)x-size,(int)y-size,2*size,2*size);
     }
 }

@@ -15,7 +15,15 @@ public class Main{
             panel.addBall();
           }
         });
+        button.setBounds(50,0,150,15);
         panel.add(button);
+        panel.setLayout(null);
+        panel.setPreferredSize(new Dimension(500,320));
+        ImageIcon icon = new ImageIcon("pick.png");
+        icon.setImage(icon.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+        JLabel pick = new JLabel(icon);
+        pick.setBounds(0,0,50,50);
+        panel.add(pick);
         frame.add(panel);
         frame.setVisible(true);
     }
