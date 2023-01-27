@@ -11,7 +11,7 @@ public class MyJPanel extends JPanel{
     public MyJPanel(){
         text.setBounds(200,0,100,15);
         add(text);
-        fpsSetter.setBounds(300,0,100,15);
+        fpsSetter.setBounds(300,0,100,20);
         add(fpsSetter);
         for(int i=0;i<20;i++){
             balls.add(i,new Ball());
