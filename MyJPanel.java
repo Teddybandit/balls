@@ -8,7 +8,9 @@ public class MyJPanel extends JPanel{
     JLabel text = new JLabel(ballNum+" balls");
     JTextField fpsSetter = new JTextField("set fps to()",10);
     private double fps = 20;
-    public MyJPanel(){
+    Player player;
+    public MyJPanel(Player p){
+        player = p;
         text.setBounds(200,0,100,15);
         add(text);
         fpsSetter.setBounds(300,0,100,20);
@@ -47,6 +49,8 @@ public class MyJPanel extends JPanel{
                 }
             }
         }
+        player.move();
+        player.draw(g);
         for(Ball ball:balls){
             ball.move();
             ball.draw(g);

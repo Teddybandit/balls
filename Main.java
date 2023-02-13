@@ -7,7 +7,9 @@ public class Main{
     {  
         Frame frame = new Frame();
         frame.setSize(500,320);
-        MyJPanel panel = new MyJPanel();
+        Player player = new Player();
+        MyJPanel panel = new MyJPanel(player);
+        frame.addKeyListener(player.getControlls());
         JButton button = new JButton("add ball");
         button.addActionListener(new ActionListener(){
           @Override
